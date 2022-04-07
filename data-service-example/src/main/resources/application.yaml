@@ -1,0 +1,18 @@
+org.cobolaci.hackaton.greenbrno:
+  providers:
+    arcgis:
+      baseUrl: https://services6.arcgis.com/fUWVlHWZNxUvTUh8/arcgis/rest/services/
+  data-points:
+    cyclist-intensity:
+      path: Cyklodetektory_h/FeatureServer/0/query
+      queryParams:
+        outFields: ID,UnitName,EndOfInterval,FirstDirection_Cyclists,FirstDirection_Pedestrians,FirstDirection_Total,SecondDirection_Cyclists,SecondDirection_Pedestrians,SecondDirection_Total,datum,LocationId
+        where: 1=1
+        returnGeometry: false
+        outSR: 4326
+        f: json
+
+
+logging:
+  level:
+    org.springframework: ERROR
