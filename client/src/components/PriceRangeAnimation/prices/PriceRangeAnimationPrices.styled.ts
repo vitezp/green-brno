@@ -41,7 +41,7 @@ export const SPriceType = styled('span')`
   text-transform: uppercase;
   line-height: 1;
   font-size: 12px;
-  color: ${color('night-text')};
+  color: ${color('brown')};
 `
 
 export const SPriceCalculatingContainer = styled.div`
@@ -54,6 +54,6 @@ export const SPriceCalculatingContainer = styled.div`
 
 export const SPriceCalculating = styled(motion('span'))`
   line-height: 1;
-  color: ${color('night-text')};
+  color: ${color('brown')};
   font-weight: medium;
 `

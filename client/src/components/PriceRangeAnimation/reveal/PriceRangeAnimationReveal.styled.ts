@@ -12,9 +12,10 @@ export const SReveal1 = styled(motion.div)`
   width: calc(${R_GAUGE} * 0.7);
   height: calc(${R_GAUGE} * 0.7);
 
-  background-color: ${color('night-l-700')};
+  background-color: ${color('purple')};
+  border-radius: 100%;
 `
-//  border-radius: ${radius('full')};
+//   border-radius: ${radius('full')};
 
 export const SReveal2 = styled(motion.div)`
   position: absolute;
@@ -26,5 +27,6 @@ export const SReveal2 = styled(motion.div)`
   height: calc(${R_COVER} * 0.7);
 
   background-color: ${color('white')};
+  border-radius: 100%;
 `
 //   border-radius: ${radius('full')};

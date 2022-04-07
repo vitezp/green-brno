@@ -19,7 +19,7 @@ export const SRangeContainerRight = styled.div`
 export const SRange = styled(motion('span'))`
   line-height: 1;
   font-size: 28px;
-  color: ${color('night-l-100')};
+  color: ${color('red')};
   font-weight: ${weight('medium')};
 `
 // @media ${media.gt('mobile')} {
