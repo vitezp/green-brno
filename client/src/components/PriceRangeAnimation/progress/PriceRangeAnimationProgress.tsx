@@ -23,17 +23,17 @@ export function PriceRangeAnimationProgress({ progress }: Props) {
       <AnimatePresence exitBeforeEnter>
         {progress === 1 && (
           <SText key={1} {...props}>
-            {t('buyingWizard:price_range_animation_progress_assessing')}
+            {t('assessing')}
           </SText>
         )}
         {progress === 2 && (
           <SText key={2} {...props}>
-            {t('buyingWizard:price_range_animation_progress_analysing')}
+            {t('analysing')}
           </SText>
         )}
         {progress === 3 && (
           <SText key={3} {...props}>
-            {t('buyingWizard:price_range_animation_progress_comparing')}
+            {t('comparing')}
           </SText>
         )}
       </AnimatePresence>

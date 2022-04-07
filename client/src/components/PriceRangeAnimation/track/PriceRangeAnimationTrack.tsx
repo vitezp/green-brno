@@ -68,7 +68,7 @@ export function PriceRangeAnimationTrack({ container, track }: Props) {
     >
       <motion.circle
         fill="none"
-        stroke={color('night-l-700')}
+        stroke={color('brown')}
         strokeDasharray={SVG_CIRC}
         cx="50%"
         cy="50%"

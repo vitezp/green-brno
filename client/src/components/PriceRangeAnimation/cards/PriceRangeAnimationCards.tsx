@@ -49,23 +49,17 @@ export function PriceRangeAnimationCards() {
     <>
       {show.left && (
         <SCardContainerLeft {...contProps}>
-          <SCard size="small" {...cardProps}>
-            {t('buyingWizard:price_range_animation_suspicious')}
-          </SCard>
+          <SCard {...cardProps}>{t('suspicious')}</SCard>
         </SCardContainerLeft>
       )}
       {show.right && (
         <SCardContainerRight {...contProps}>
-          <SCard size="small" {...cardProps}>
-            {t('buyingWizard:price_range_animation_overpriced')}
-          </SCard>
+          <SCard {...cardProps}>{t('overpriced')}</SCard>
         </SCardContainerRight>
       )}
       {show.top && (
         <SCardContainerTop {...contPropsTop}>
-          <SCard size="small" {...cardProps}>
-            {t('buyingWizard:price_range_animation_fair')}
-          </SCard>
+          <SCard {...cardProps}>{t('fair')}</SCard>
         </SCardContainerTop>
       )}
     </>

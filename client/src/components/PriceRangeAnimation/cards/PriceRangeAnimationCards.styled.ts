@@ -12,9 +12,10 @@ export const SCardContainerLeft = styled(motion.div)`
   padding: ${size(3)} ${size(4)};
 
   background-color: ${color('white')};
+  border-radius: 50% 50%;
   box-shadow: 0 2px 16px 4px rgba(0, 0, 0, 0.1);
 `
-// border-radius: ${radius('corner')}; // FIXME:
+// border-radius: ${radius('corner')}
 
 export const SCardContainerRight = styled(SCardContainerLeft)`
   left: initial;

@@ -50,12 +50,8 @@ export function PriceRangeAnimationPrices({ prices, priceType, counts }: Props) 
     <>
       <SPriceTypeContainer>
         <SPriceTypes animate={priceType} {...priceTypeProps}>
-          <SPriceType variant="setup" size="small">
-            {t('buyingWizard:price_range_animation_higher')}
-          </SPriceType>
-          <SPriceType variant="setup" size="small">
-            {t('buyingWizard:price_range_animation_lower')}
-          </SPriceType>
+          <SPriceType>{t('higher')}</SPriceType>
+          <SPriceType>{t('lower')}</SPriceType>
         </SPriceTypes>
       </SPriceTypeContainer>
       <SPriceContainer>
@@ -64,8 +60,8 @@ export function PriceRangeAnimationPrices({ prices, priceType, counts }: Props) 
         </SPrice>
       </SPriceContainer>
       <SPriceCalculatingContainer>
-        <SPriceCalculating size="small" animate={prices} {...pricesProps}>
-          {t('buyingWizard:price_range_animation_calculating')}
+        <SPriceCalculating animate={prices} {...pricesProps}>
+          {t('calculating')}
         </SPriceCalculating>
       </SPriceCalculatingContainer>
     </>
