@@ -2,13 +2,23 @@ org.cobolaci.hackaton.greenbrno:
   providers:
     arcgis:
       baseUrl: https://services6.arcgis.com/fUWVlHWZNxUvTUh8/arcgis/rest/services/
-  data-points:
+  data-sources:
     cyclist-intensity:
       path: Cyklodetektory_h/FeatureServer/0/query
       queryParams:
         outFields: ID,UnitName,EndOfInterval,FirstDirection_Cyclists,FirstDirection_Pedestrians,FirstDirection_Total,SecondDirection_Cyclists,SecondDirection_Pedestrians,SecondDirection_Total,datum,LocationId
         where: 1=1
         returnGeometry: false
+        returnCountOnly: false
+        outSR: 4326
+        f: json
+    greenery:
+      path: stromy_kere/FeatureServer/0/query
+      queryParams:
+        outFields: ogcfid,druh_bio_kod,nazev
+        where: 1=1
+        returnGeometry: false
+        returnCountOnly: false
         outSR: 4326
         f: json
 

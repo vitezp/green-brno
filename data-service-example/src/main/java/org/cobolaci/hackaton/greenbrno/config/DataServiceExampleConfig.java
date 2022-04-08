@@ -43,6 +43,11 @@ public class DataServiceExampleConfig {
 
     @Bean
     public DataSource cyclistIntensity() {
-        return dataPoints.getCyclistIntensity();
+        return dataSources.getCyclistIntensity();
+    }
+
+    @Bean
+    public DataSource greenery() {
+        return dataSources.getGreenery();
     }
 }
