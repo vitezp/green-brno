@@ -1,6 +1,7 @@
 package org.cobolaci.hackaton.greenbrno.service;
 
 import org.cobolaci.hackaton.greenbrno.config.DataSource;
+import org.cobolaci.hackaton.greenbrno.dto.CountResponse;
 import org.cobolaci.hackaton.greenbrno.dto.ExternalData;
 import org.cobolaci.hackaton.greenbrno.dto.ExternalDataWrapper;
 import org.cobolaci.hackaton.greenbrno.dto.ExternalResponse;
@@ -25,16 +26,33 @@ abstract class AbstractQueryService<T extends ExternalData> implements QueryServ
 
     @Override
     public List<T> getEntities() {
-        return webClient.get()
-                .uri(uriBuilder -> uriBuilder.path(dataPoint.getPath())
-                        .queryParams(getParams())
-                        .build()
-                )
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
+        return getRequest(getParams())
                 .bodyToMono(getResponseClass())
                 .map(ExternalResponse::getEntities)
                 .block();
+    }
+
+    @Override
+    public int getCount() {
+        return getRequest(countOnly(getParams()))
+                .bodyToMono(CountResponse.class)
+                .map(count -> count == null || count.getCount() == null ? 0 : count.getCount())
+                .block();
+    }
+
+    protected MultiValueMap<String, String> countOnly(MultiValueMap<String, String> queryParams) {
+        queryParams.put("returnCountOnly", singletonList(Boolean.TRUE.toString()));
+        return queryParams;
+    }
+
+    private WebClient.ResponseSpec getRequest(MultiValueMap<String, String> queryParams) {
+        return webClient.get()
+                .uri(uriBuilder -> uriBuilder.path(dataPoint.getPath())
+                        .queryParams(queryParams)
+                        .build()
+                )
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve();
     }
 
     protected abstract <W extends ExternalDataWrapper<T>> Class<? extends ExternalResponse<T>> getResponseClass();

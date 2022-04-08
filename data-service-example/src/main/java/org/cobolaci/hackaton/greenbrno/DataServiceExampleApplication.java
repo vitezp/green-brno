@@ -29,6 +29,9 @@ public class DataServiceExampleApplication {
     @EventListener(ApplicationReadyEvent.class)
     public void appReady() {
         List<CyclistIntensity> intensity = service.getEntities();
+        List<Greenery> greenery = greeneryService.getEntities();
+
+        int greeneryCount = greeneryService.getCount();
 
         intensity.size();
         greenery.size();
