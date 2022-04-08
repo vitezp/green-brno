@@ -1,12 +1,13 @@
-package org.cobolaci.hackaton.greenbrno.dto;
+package org.cobolaci.hackaton.greenbrno.dto.cycling;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.cobolaci.hackaton.greenbrno.dto.ExternalData;
 
 import java.util.Date;
 
 @Data
-public class CyclistIntensity {
+public class CyclistIntensity implements ExternalData {
     @JsonProperty("ID")
     private Integer id;
 
