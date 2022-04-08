@@ -7,4 +7,6 @@ import java.util.List;
 public interface QueryService<T extends ExternalData> {
 
     List<T> getEntities();
+
+    int getCount();
 }

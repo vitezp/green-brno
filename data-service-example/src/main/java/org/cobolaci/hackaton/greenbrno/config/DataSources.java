@@ -6,4 +6,5 @@ import lombok.Data;
 public class DataSources {
 
     private DataSource cyclistIntensity;
+    private DataSource greenery;
 }
