@@ -49,10 +49,9 @@ export const Profile: FC = () => {
     <Paper classes={classes}>
       <Container maxWidth="lg">
         <CardHeader
-            action={<Percentile/>}
+          action={<Percentile/>}
           avatar={
             <Avatar
-              alt="Remy Sharp"
               src="/images/paprik.jfif"
               style={{
                 height: '170px',
@@ -60,6 +59,7 @@ export const Profile: FC = () => {
               }}
             />
           }
+          subheader="vítejte ve svém profilu! Zde můžete vidět súhrn svých aktivit, které dělají Brno zelenším"
           title={<Typography variant="h2">Patrik</Typography>}
         />
 
