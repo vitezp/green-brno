@@ -1,5 +1,7 @@
 package org.cobolaci.hackaton.greenbrno.service;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import org.cobolaci.hackaton.greenbrno.config.DataSource;
 import org.cobolaci.hackaton.greenbrno.dto.CountResponse;
 import org.cobolaci.hackaton.greenbrno.dto.ExternalData;
@@ -11,7 +13,10 @@ import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.util.DefaultUriBuilderFactory;
 
+import java.net.URI;
+import java.time.Duration;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
@@ -20,10 +25,13 @@ abstract class AbstractQueryService<T extends ExternalData> implements QueryServ
 
     private final WebClient webClient;
     private final DataSource dataPoint;
+    private final Cache<URI, List<T>> cache;
 
     public AbstractQueryService(WebClient acgisWebClient, DataSource dataPoint) {
         this.webClient = acgisWebClient;
         this.dataPoint = dataPoint;
+        this.cache = Caffeine.newBuilder().maximumSize(100)
+                .expireAfterWrite(Duration.ofHours(1)).build();
     }
 
     @Override
@@ -33,15 +41,14 @@ abstract class AbstractQueryService<T extends ExternalData> implements QueryServ
 
     @Override
     public List<T> getEntities(Pageable pageable) {
-        return getRequest(injectPageable(pageable, getParams()))
-                .bodyToMono(getResponseClass())
-                .map(ExternalResponse::getEntities)
-                .block();
+        URI uri = getUri(injectPageable(pageable, getParams()));
+        return getEntities(uri);
     }
 
     @Override
     public int getCount() {
-        return getRequest(countOnly(getParams()))
+        URI uri = getUri(countOnly(getParams()));
+        return getRequest(uri)
                 .bodyToMono(CountResponse.class)
                 .map(count -> count == null || count.getCount() == null ? 0 : count.getCount())
                 .block();
@@ -58,14 +65,37 @@ abstract class AbstractQueryService<T extends ExternalData> implements QueryServ
         return queryParams;
     }
 
-    private WebClient.ResponseSpec getRequest(MultiValueMap<String, String> queryParams) {
+    private List<T> getEntities(URI uri) {
+        List<T> ifPresent = cache.getIfPresent(uri);
+        if (ifPresent != null) {
+            return ifPresent;
+        }
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder.path(dataPoint.getPath())
-                        .queryParams(queryParams)
-                        .build()
-                )
+                        .query(uri.getQuery())
+                        .build())
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(getResponseClass())
+                .map(ExternalResponse::getEntities)
+                .doOnNext(data -> cache.put(uri, data))
+                .block();
+    }
+
+    private WebClient.ResponseSpec getRequest(URI uri) {
+        return webClient.get()
+                .uri(uriBuilder -> uriBuilder.path(dataPoint.getPath())
+                        .query(uri.getQuery())
+                        .build())
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve();
+    }
+
+    private URI getUri(MultiValueMap<String, String> queryParams) {
+        return new DefaultUriBuilderFactory().builder()
+                .path(dataPoint.getPath())
+                .queryParams(queryParams)
+                .build();
     }
 
     protected abstract <W extends ExternalDataWrapper<T>> Class<? extends ExternalResponse<T>> getResponseClass();
