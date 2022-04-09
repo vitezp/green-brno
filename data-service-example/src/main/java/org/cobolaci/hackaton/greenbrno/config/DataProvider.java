@@ -6,4 +6,5 @@ import lombok.Data;
 public class DataProvider {
 
     private String baseUrl;
+    private String authorization;
 }

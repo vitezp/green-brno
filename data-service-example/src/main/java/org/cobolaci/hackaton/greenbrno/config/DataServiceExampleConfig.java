@@ -2,6 +2,7 @@ package org.cobolaci.hackaton.greenbrno.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.codec.ClientCodecConfigurer;
@@ -29,6 +30,15 @@ public class DataServiceExampleConfig {
                 .build();
     }
 
+    @Bean
+    public WebClient stravaWebClient(@Qualifier("stravaapi") DataProvider stravaDataProvider) {
+        return WebClient.builder()
+                .exchangeStrategies(ExchangeStrategies.builder().codecs(this::acceptedCodecs).build())
+                .baseUrl(providers.getStravaapi().getBaseUrl())
+                .defaultHeaders(httpHeaders -> {httpHeaders.setBearerAuth(stravaDataProvider.getA);})
+                .build();
+    }
+
     private void acceptedCodecs(ClientCodecConfigurer clientCodecConfigurer) {
         clientCodecConfigurer.defaultCodecs().maxInMemorySize(BUFFER_SIZE_16MB);
         // api returns text/plain instead of application/json for count request
@@ -42,6 +52,11 @@ public class DataServiceExampleConfig {
     }
 
     @Bean
+    public DataProvider stravaapi() {
+        return providers.getStravaapi();
+    }
+
+    @Bean
     public DataSource cyclistIntensity() {
         return dataSources.getCyclistIntensity();
     }
@@ -49,6 +64,11 @@ public class DataServiceExampleConfig {
     @Bean
     public DataSource greenery() {
         return dataSources.getGreenery();
+    }
+
+    @Bean
+    public DataSource stravaClubActivities() {
+        return dataSources.getStravaClubActivities();
     }
 
     @Bean

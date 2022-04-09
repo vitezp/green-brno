@@ -1,9 +1,14 @@
 package org.cobolaci.hackaton.greenbrno.dto.strava;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 import org.cobolaci.hackaton.greenbrno.api.model.strava.StravaActivityType;
+import org.cobolaci.hackaton.greenbrno.dto.ExternalData;
+import org.cobolaci.hackaton.greenbrno.dto.ExternalDataWrapper;
+import org.cobolaci.hackaton.greenbrno.dto.Geolocation;
 
-public class SummaryActivity {
+@Data
+public class SummaryActivity implements ExternalData, ExternalDataWrapper<SummaryActivity> {
     @JsonProperty("id")
     private Integer id;
 
@@ -18,4 +23,14 @@ public class SummaryActivity {
 
     @JsonProperty("commute")
     private boolean commute;
+
+    @Override
+    public void setLocation(Geolocation location) {
+        //noop
+    }
+
+    @Override
+    public SummaryActivity unwrap() {
+        return this;
+    }
 }
