@@ -1,5 +1,6 @@
 package org.cobolaci.hackaton.greenbrno.api.controller;
 
+import org.cobolaci.hackaton.greenbrno.api.model.BicycleIntensity;
 import org.cobolaci.hackaton.greenbrno.dto.greenery.Greenery;
 import org.cobolaci.hackaton.greenbrno.service.QueryService;
 import org.springframework.data.domain.PageRequest;
