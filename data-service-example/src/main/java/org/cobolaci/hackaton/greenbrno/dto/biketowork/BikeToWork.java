@@ -20,6 +20,9 @@ public class BikeToWork extends LocatedExternalData {
     @JsonProperty("data_2019")
     private Integer data2019;
 
+    @JsonProperty("data_2018")
+    private Integer data2018;
+
     @JsonProperty("Shape__Length")
     private BigDecimal shapeLength;
 }
