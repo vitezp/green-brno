@@ -41,7 +41,7 @@ export const SPriceType = styled('span')`
   text-transform: uppercase;
   line-height: 1;
   font-size: 12px;
-  color: ${color('brown')};
+  color: ${color('pink')};
 `
 
 export const SPriceCalculatingContainer = styled.div`
