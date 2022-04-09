@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useStyles } from './styles'
-import { Paper } from '@material-ui/core'
+import {Avatar, CardHeader, Paper, Typography} from '@material-ui/core'
 import { primaryColor, textColor } from '../../theme'
 
 const panelItems = [
   { key: 'calculator', label: 'Eko Kalkulačka' },
-  { key: 'event', label: 'Akce' },
+  { key: 'events', label: 'Akce' }
 ]
 
 export const Panel: FC = () => {
@@ -27,6 +27,7 @@ export const Panel: FC = () => {
         borderRadius: '0px',
         padding: '0 16px',
         backgroundColor: '#ffffffe0',
+          zIndex: 2
       }}
       square
       classes={classes}
@@ -36,7 +37,7 @@ export const Panel: FC = () => {
         style={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
+          alignItems: 'center'
         }}
       >
         <img
@@ -62,6 +63,14 @@ export const Panel: FC = () => {
           </Link>
         ))}
       </div>
+        <Link
+            to={`/profile`}>
+            <CardHeader
+                avatar={<Avatar src="/images/paprik.jfif"/>}
+                title={"Patrik"}
+            />
+        </Link>
+
     </Paper>
   )
 }

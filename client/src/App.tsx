@@ -3,11 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { Panel } from './components/Panel'
 
 import './App.css'
-
-const panelItems = [
-  { key: 'calculator', label: 'Eko Kalkulačka' },
-  { key: 'event', label: 'Akce' },
-]
+import {Profile} from "./components/Profile";
+import {Events} from "./components/Events";
 
 export default function App() {
   return (
@@ -23,7 +20,10 @@ export default function App() {
               <About />
             </Route>
             <Route exact path="/events">
-              <Users />
+              <Events />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
             </Route>
             <Redirect to="/" />
           </Switch>
@@ -39,8 +39,4 @@ function Home() {
 
 function About() {
   return <h2>About</h2>
-}
-
-function Users() {
-  return <h2>Users</h2>
 }
