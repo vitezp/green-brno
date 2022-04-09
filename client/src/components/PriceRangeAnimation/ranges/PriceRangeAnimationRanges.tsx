@@ -1,6 +1,6 @@
 import React from 'react'
 // import { formatEur } from 'driverama-core/utils/formatting'
-import { SRange, SRangeContainerLeft, SRangeContainerRight } from './PriceRangeAnimationRanges.styled'
+import { SRangeContainerLeft, SRangeContainerRight, SRangeMin, SRangeMax } from './PriceRangeAnimationRanges.styled'
 import { AnimationControls } from 'framer-motion'
 
 const propsL = {
@@ -27,14 +27,14 @@ export function PriceRangeAnimationRanges({ from, to, ranges }: Props) {
   return (
     <>
       <SRangeContainerLeft>
-        <SRange animate={ranges} {...propsL}>
+        <SRangeMin animate={ranges} {...propsL}>
           {from}
-        </SRange>
+        </SRangeMin>
       </SRangeContainerLeft>
       <SRangeContainerRight>
-        <SRange animate={ranges} {...propsR}>
+        <SRangeMax animate={ranges} {...propsR}>
           {to}
-        </SRange>
+        </SRangeMax>
       </SRangeContainerRight>
     </>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { AnimationControls, motion } from 'framer-motion'
-import { color } from 'theme'
+import { color, textColor } from 'theme'
 import { SVG_CIRC, SVG_RADIUS, SVG_WIDTH } from 'components/PriceRangeAnimation/PriceRangeAnimation.utils'
 
 const containerProps = {
@@ -68,7 +68,7 @@ export function PriceRangeAnimationTrack({ container, track }: Props) {
     >
       <motion.circle
         fill="none"
-        stroke={color('#00aa00')}
+        stroke="#dbdcdb"
         strokeDasharray={SVG_CIRC}
         cx="50%"
         cy="50%"
