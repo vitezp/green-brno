@@ -50,4 +50,9 @@ public class DataServiceExampleConfig {
     public DataSource greenery() {
         return dataSources.getGreenery();
     }
+
+    @Bean
+    public DataSource bikeToWork() {
+        return dataSources.getBikeToWork();
+    }
 }

@@ -7,4 +7,5 @@ public class DataSources {
 
     private DataSource cyclistIntensity;
     private DataSource greenery;
+    private DataSource bikeToWork;
 }

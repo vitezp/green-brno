@@ -1,6 +1,8 @@
 package org.cobolaci.hackaton.greenbrno;
 
 import lombok.extern.slf4j.Slf4j;
+import org.cobolaci.hackaton.greenbrno.aggregator.DataAggregator;
+import org.cobolaci.hackaton.greenbrno.api.model.BicycleIntensity;
 import org.cobolaci.hackaton.greenbrno.config.DataServiceExampleConfig;
 import org.cobolaci.hackaton.greenbrno.dto.cycling.CyclistIntensity;
 import org.cobolaci.hackaton.greenbrno.dto.greenery.Greenery;
@@ -23,8 +25,12 @@ public class DataServiceExampleApplication {
 
     @Autowired
     private QueryService<CyclistIntensity> service;
+
     @Autowired
     private QueryService<Greenery> greeneryService;
+
+    @Autowired
+    DataAggregator<CyclistIntensity, BicycleIntensity> cyclingAggregator;
 
     public static void main(String[] args) {
         SpringApplication.run(DataServiceExampleApplication.class, args);
@@ -41,6 +47,8 @@ public class DataServiceExampleApplication {
         log.info("third query");
         greenery = greeneryService.getEntities(PageRequest.of(1000, 1000));
         log.info("finished");
+
+        cyclingAggregator.aggregate();
 
         int greeneryCount = greeneryService.getCount();
 

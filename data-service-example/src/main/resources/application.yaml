@@ -3,6 +3,15 @@ org.cobolaci.hackaton.greenbrno:
     arcgis:
       baseUrl: https://services6.arcgis.com/fUWVlHWZNxUvTUh8/arcgis/rest/services/
   data-sources:
+    bike-to-work:
+      path: dpnk_data/FeatureServer/0/query
+      queryParams:
+        outFields: data_2019,data_2020,data_2021,Shape__Length
+        where: 1=1
+        returnGeometry: false
+        returnCountOnly: false
+        outSR: 4326
+        f: json
     cyclist-intensity:
       path: Cyklodetektory_h/FeatureServer/0/query
       queryParams:
