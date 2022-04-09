@@ -17,6 +17,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 
 import static java.util.Collections.singletonList;
 
@@ -58,8 +59,16 @@ public class StravaClubActivitiesService implements QueryService<SummaryActivity
                 .retrieve()
                 .bodyToMono(SummaryActivity[].class)
                 .map(Arrays::asList)
+                .map(setUserId())
                 .doOnNext(data -> cache.put(getCacheKey(pageable), data))
                 .block();
+    }
+
+    private Function<List<SummaryActivity>, List<SummaryActivity>> setUserId() {
+        return x -> {
+            x.forEach(entry -> entry.setUserId((long) (Math.random() * 3)));
+            return x;
+        };
     }
 
     @Override

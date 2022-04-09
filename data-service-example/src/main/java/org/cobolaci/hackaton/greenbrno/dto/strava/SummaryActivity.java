@@ -10,6 +10,8 @@ import org.cobolaci.hackaton.greenbrno.dto.Geolocation;
 @Data
 public class SummaryActivity implements ExternalData, ExternalDataWrapper<SummaryActivity> {
 
+    private long userId;
+
     @JsonProperty("name")
     private String name;
 
