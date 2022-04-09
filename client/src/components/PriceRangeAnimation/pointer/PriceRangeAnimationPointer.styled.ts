@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
-import { color, size } from 'theme'
+import { color, size, textColor } from 'theme'
 import { R_COVER } from 'components/PriceRangeAnimation/PriceRangeAnimation.utils'
 
 export const SPointerContainer = styled.div`
@@ -20,7 +20,7 @@ export const SPointerBody = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: ${color('pink')};
+  background-color: ${textColor};
   clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
 `
 export const SPointerBallStart = styled.div`
@@ -33,7 +33,7 @@ export const SPointerBallStart = styled.div`
   height: ${size(4)};
 
   border-radius: 50%;
-  background-color: ${color('pink')};
+  background-color: ${textColor};
 `
 export const SPointerBallEnd = styled.div`
   position: absolute;
@@ -45,5 +45,5 @@ export const SPointerBallEnd = styled.div`
   height: calc(0.4 * ${size(4)});
 
   border-radius: 50%;
-  background-color: ${color('pink')};
+  background-color: ${textColor};
 `

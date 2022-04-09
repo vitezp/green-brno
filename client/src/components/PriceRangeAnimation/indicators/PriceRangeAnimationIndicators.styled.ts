@@ -37,6 +37,6 @@ export const SIndicator = styled(motion.div)`
 
   transform-origin: center bottom;
 
-  background-color: ${color('green')};
+  background-color: #c5db99;
   border-radius: 100px;
 `

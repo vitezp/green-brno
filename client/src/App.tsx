@@ -1,10 +1,11 @@
+import './App.css'
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { Panel } from './components/Panel'
-
-import './App.css'
+import { Home } from './routes/home'
 import {Profile} from "./components/Profile";
 import {Events} from "./components/Events";
+
 
 export default function App() {
   return (
@@ -31,10 +32,6 @@ export default function App() {
       </div>
     </Router>
   )
-}
-
-function Home() {
-  return <h2>Home</h2>
 }
 
 function About() {
