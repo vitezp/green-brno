@@ -5,6 +5,8 @@ import org.cobolaci.hackaton.greenbrno.dto.CountResponse;
 import org.cobolaci.hackaton.greenbrno.dto.ExternalData;
 import org.cobolaci.hackaton.greenbrno.dto.ExternalDataWrapper;
 import org.cobolaci.hackaton.greenbrno.dto.ExternalResponse;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -26,7 +28,12 @@ abstract class AbstractQueryService<T extends ExternalData> implements QueryServ
 
     @Override
     public List<T> getEntities() {
-        return getRequest(getParams())
+        return getEntities(PageRequest.of(0, 1000));
+    }
+
+    @Override
+    public List<T> getEntities(Pageable pageable) {
+        return getRequest(injectPageable(pageable, getParams()))
                 .bodyToMono(getResponseClass())
                 .map(ExternalResponse::getEntities)
                 .block();
@@ -38,6 +45,12 @@ abstract class AbstractQueryService<T extends ExternalData> implements QueryServ
                 .bodyToMono(CountResponse.class)
                 .map(count -> count == null || count.getCount() == null ? 0 : count.getCount())
                 .block();
+    }
+
+    protected MultiValueMap<String, String> injectPageable(Pageable pageable, MultiValueMap<String, String> queryParams) {
+        queryParams.put("resultOffset", singletonList(Long.toString(pageable.getOffset())));
+        queryParams.put("resultRecordCount", singletonList(Long.toString(pageable.getPageSize())));
+        return queryParams;
     }
 
     protected MultiValueMap<String, String> countOnly(MultiValueMap<String, String> queryParams) {
