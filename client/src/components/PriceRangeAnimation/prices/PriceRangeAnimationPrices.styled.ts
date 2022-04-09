@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { color } from 'theme'
+import { color, textColor } from 'theme'
 
 export const SPriceContainer = styled.div`
   position: absolute;
@@ -10,10 +10,10 @@ export const SPriceContainer = styled.div`
   overflow: hidden;
 `
 
-export const SPrice = styled(motion('span'))`
+export const SPrice = styled(motion.div)`
   line-height: 1;
   font-size: 42px;
-  color: ${color('blue')};
+  color: ${textColor};
 `
 
 export const SPriceTypeContainer = styled.div`
@@ -33,7 +33,7 @@ export const SPriceTypes = styled(motion.div)`
   height: 16px;
 `
 
-export const SPriceType = styled('span')`
+export const SPriceType = styled(motion.div)`
   display: block;
   height: 16px;
 
@@ -41,7 +41,7 @@ export const SPriceType = styled('span')`
   text-transform: uppercase;
   line-height: 1;
   font-size: 12px;
-  color: ${color('pink')};
+  color: ${textColor};
 `
 
 export const SPriceCalculatingContainer = styled.div`

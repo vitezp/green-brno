@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { color } from 'theme'
+import { color, primaryColor, secondaryColor } from 'theme'
 import { motion } from 'framer-motion'
 import { R_COVER, R_GAUGE, SVG_WIDTH } from 'components/PriceRangeAnimation/PriceRangeAnimation.utils'
 
@@ -27,7 +27,7 @@ export const SGaugeFill = styled(motion.div)`
   height: calc(${R_GAUGE} - 1px);
 
   border-radius: 50%;
-  background: linear-gradient(to right, ${color('red')} 0%, ${color('green')} 66%);
+  background: linear-gradient(to right, ${secondaryColor} 0%, ${primaryColor} 66%);
 
   clip-path: polygon(0 49%, 49% 49%, 51% 100%, 100% 100%, 100% 0, 0 0);
 `

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { color, weight } from 'theme'
+import { color, primaryColor, weight } from 'theme'
 
 export const SRangeContainerLeft = styled.div`
   position: absolute;
@@ -16,12 +16,13 @@ export const SRangeContainerRight = styled.div`
   overflow: hidden;
 `
 
-export const SRange = styled(motion('span'))`
+export const SRangeMin = styled(motion.div)`
   line-height: 1;
   font-size: 28px;
-  color: ${color('red')};
-  font-weight: ${weight('medium')};
+  font-weight: normal;
+  color: #da2128;
 `
-// @media ${media.gt('mobile')} {
-//     font-size: 40px;
-//   }
+
+export const SRangeMax = styled(SRangeMin)`
+  color: ${primaryColor};
+`

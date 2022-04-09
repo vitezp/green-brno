@@ -28,8 +28,8 @@ export const SCardContainerTop = styled(SCardContainerLeft)`
   transform: translateX(-50%);
 `
 
-export const SCard = styled(motion('span'))`
+export const SCard = styled(motion.div)`
   display: block;
-  font-weight: medium;
-  color: ${color('blue')};
+  font-weight: bold;
+  color: #578300;
 `

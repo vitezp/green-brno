@@ -41,7 +41,7 @@ export function PriceRangeAnimationLoader({ loader, loaderContainer }: Props) {
     >
       <motion.circle
         fill="none"
-        stroke={color('green')}
+        stroke="#8ab633"
         strokeWidth={2}
         strokeDasharray={SVG_CIRC * 0.55}
         cx="50%"

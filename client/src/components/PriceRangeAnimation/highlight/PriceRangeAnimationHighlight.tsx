@@ -1,5 +1,5 @@
 import React, { AnimationControls, motion } from 'framer-motion'
-import { color } from 'theme'
+import { color, primaryColor } from 'theme'
 import { SVG_CIRC, SVG_RADIUS, SVG_WIDTH } from 'components/PriceRangeAnimation/PriceRangeAnimation.utils'
 import { SContainer } from './PriceRangeAnimationHighlight.styled'
 
@@ -21,7 +21,7 @@ export function PriceRangeAnimationHighlight({ highlight }: Props) {
     <SContainer version="1.1" xmlns="http://www.w3.org/2000/svg" width={SVG_WIDTH} height={SVG_WIDTH}>
       <motion.circle
         fill="none"
-        stroke={color('blue')}
+        stroke={primaryColor}
         strokeDasharray={SVG_CIRC * 0.75}
         strokeWidth={SVG_RADIUS * 0.75}
         cx="50%"

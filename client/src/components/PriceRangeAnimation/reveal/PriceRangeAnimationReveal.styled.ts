@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { color } from 'theme'
+import { color, textColor } from 'theme'
 import { R_COVER, R_GAUGE } from 'components/PriceRangeAnimation/PriceRangeAnimation.utils'
 
 export const SReveal1 = styled(motion.div)`
@@ -12,7 +12,7 @@ export const SReveal1 = styled(motion.div)`
   width: calc(${R_GAUGE} * 0.7);
   height: calc(${R_GAUGE} * 0.7);
 
-  background-color: ${color('purple')};
+  background-color: #dbdcdb;
   border-radius: 100%;
 `
 //   border-radius: ${radius('full')};
