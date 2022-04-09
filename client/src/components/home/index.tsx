@@ -1,5 +1,5 @@
 import React from 'react'
-import { PriceRangeAnimation } from '../../components/PriceRangeAnimation/PriceRangeAnimation'
+import { PriceRangeAnimation } from '../PriceRangeAnimation/PriceRangeAnimation'
 
 export const Home = () => {
   return (

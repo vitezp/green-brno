@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useStyles } from './styles'
-import { Avatar, CardHeader, Paper, Typography } from '@material-ui/core'
+import { Avatar, Paper } from '@material-ui/core'
 import { primaryColor, textColor } from '../../theme'
 
 const panelItems = [
@@ -42,7 +42,7 @@ export const Panel: FC = () => {
       >
         <img
           style={{ cursor: 'pointer' }}
-          src="/images/logo_black.png"
+          src={`/images/${pathname === '/' ? 'logo_green.png' : 'logo_black.png'}`}
           alt="Brno"
           width="auto"
           height="80px"
@@ -63,8 +63,21 @@ export const Panel: FC = () => {
           </Link>
         ))}
       </div>
-      <Link to="/profile">
-        <CardHeader avatar={<Avatar src="/images/paprik.jfif" />} title="Patrik" />
+      <Link
+        to="/profile"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          textDecoration: 'none',
+          padding: '8px 16px',
+
+          color: pathname.includes('profile') ? primaryColor : textColor,
+          fontWeight: pathname.includes('profile') ? 'bold' : 'normal',
+        }}
+      >
+        Patrik
+        <Avatar src="/images/paprik.jfif" />
       </Link>
     </Paper>
   )
