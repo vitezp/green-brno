@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { EmbedSocialWidget } from './components/InstagramFeed/EmbedSocialWidget'
+import './App.css'
 import { Panel } from './components/Panel'
 import { Home } from './routes/home'
 import { Profile } from "./components/Profile";
