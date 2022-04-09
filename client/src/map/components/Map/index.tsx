@@ -16,6 +16,10 @@ export const Map: FC = () => {
       style: 'mapbox://styles/mapbox/light-v10',
       center: [16.6035456, 49.2044288],
       zoom: 12,
+      maxBounds: new mapboxgl.LngLatBounds(
+        new mapboxgl.LngLat(16.251, 49.0929),
+        new mapboxgl.LngLat(16.97222, 49.3118)
+      ),
     })
 
     // add navigation control (zooming and rotating)
