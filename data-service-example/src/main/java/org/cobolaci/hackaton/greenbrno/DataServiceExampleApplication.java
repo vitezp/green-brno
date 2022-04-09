@@ -40,9 +40,9 @@ public class DataServiceExampleApplication {
 
     @EventListener(ApplicationReadyEvent.class)
     public void appReady() {
-//        List<SummaryActivity> clubActivities = stravaClubActivitiesService.getEntities(PageRequest.of(1, 30));
-//        clubActivities = stravaClubActivitiesService.getEntities(PageRequest.of(2, 30));
-//        clubActivities = stravaClubActivitiesService.getEntities(PageRequest.of(3, 30));
+        List<SummaryActivity> clubActivities = stravaClubActivitiesService.getEntities(PageRequest.of(1, 30));
+        clubActivities = stravaClubActivitiesService.getEntities(PageRequest.of(2, 30));
+        clubActivities = stravaClubActivitiesService.getEntities(PageRequest.of(3, 30));
 
         List<CyclistIntensity> intensity = service.getEntities();
 
