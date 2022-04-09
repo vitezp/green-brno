@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/greenery")
 @RestController
 public class GreeneryController {
 
@@ -21,12 +21,12 @@ public class GreeneryController {
         this.greeneryQueryService = greeneryQueryService;
     }
 
-    @GetMapping("/greenery/count")
+    @GetMapping("/count")
     public ResponseEntity<Integer> getGreeneryCount() {
         return ResponseEntity.ok().body(greeneryQueryService.getCount());
     }
 
-    @GetMapping(path = "/greenery")
+    @GetMapping
     public ResponseEntity<List<Greenery>> getGreenery(@RequestParam("page") int page,
                                                       @RequestParam("size") int size) {
         return ResponseEntity.ok().body(greeneryQueryService.getEntities(PageRequest.of(page, size)));
