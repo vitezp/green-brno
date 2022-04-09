@@ -1,11 +1,12 @@
 import './App.css'
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { EmbedSocialWidget } from './components/InstagramFeed/EmbedSocialWidget'
 import './App.css'
 import { Panel } from './components/Panel'
-import { Home } from './routes/home'
-import { Profile } from "./components/Profile";
-import { Events } from "./components/Events";
+import { Home } from './components/home'
+import { Profile } from './components/Profile'
+import { Events } from './components/Events'
 
 export default function App() {
   return (
