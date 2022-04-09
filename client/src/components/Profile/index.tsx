@@ -14,6 +14,8 @@ import {
   Typography,
 } from '@material-ui/core'
 import { useStyles } from '../Panel/styles'
+import {BikeToWork} from "../BikeToWork";
+import {Percentile} from "../Percentile";
 
 const createData = (event: string, distance: number, points: number) => {
   return { event, distance, points }
@@ -47,6 +49,7 @@ export const Profile: FC = () => {
     <Paper classes={classes}>
       <Container maxWidth="lg">
         <CardHeader
+            action={<Percentile/>}
           avatar={
             <Avatar
               alt="Remy Sharp"
