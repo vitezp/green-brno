@@ -30,7 +30,7 @@ public class CyclingIntensityAggregator implements DataAggregator<CyclistIntensi
         Map<Integer, BicycleIntensity> cache = new HashMap<>();
 
         while(processedRecords < totalCount) {
-            queryService.getEntities(PageRequest.of(processedRecords, intPageSize)).forEach(x -> processEntry(cache, x));
+            queryService.getEntities(PageRequest.of(processedRecords / intPageSize, intPageSize)).forEach(x -> processEntry(cache, x));
             processedRecords += intPageSize;
         }
 
@@ -52,6 +52,5 @@ public class CyclingIntensityAggregator implements DataAggregator<CyclistIntensi
         total += intensity.getSecondDirectionCyclists() == null ? 0 : intensity.getSecondDirectionCyclists();
         return total;
     }
-
 
 }
