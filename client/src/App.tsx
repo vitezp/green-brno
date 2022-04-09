@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { Panel } from './components/Panel'
-import EmbedSocialWidget from "./components/InstagramFeed/EmbedSocialWidget"
+import { EmbedSocialWidget } from './components/InstagramFeed/EmbedSocialWidget'
 
 import './App.css'
 
@@ -11,9 +11,6 @@ const panelItems = [
 ]
 
 export default function App() {
-const props:any = {
-            refId:"d2fd508a63740c27e790196ace907ebac1fd3bb3"
-                                        }
   return (
     <Router>
       <div style={{ height: '3000px' }}>
@@ -23,9 +20,7 @@ const props:any = {
             <Route exact path="/">
               <Home />
               <div id="123">
-                  <EmbedSocialWidget {
-                      ...props
-                  } />
+                <EmbedSocialWidget refId="d2fd508a63740c27e790196ace907ebac1fd3bb3" />
               </div>
             </Route>
             <Route exact path="/calculator">
