@@ -38,4 +38,4 @@ org.cobolaci.hackaton.greenbrno:
 
 logging:
   level:
-    org.springframework: DEBUG
+    org.springframework: ERROR
