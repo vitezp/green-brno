@@ -8,4 +8,9 @@ public class CountResponse implements ExternalData {
 
     @JsonProperty("count")
     private Integer count;
+
+    @Override
+    public void setLocation(Geolocation location) {
+
+    }
 }
