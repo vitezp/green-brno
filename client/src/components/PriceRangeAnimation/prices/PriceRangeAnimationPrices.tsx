@@ -50,8 +50,8 @@ export function PriceRangeAnimationPrices({ prices, priceType, counts }: Props) 
     <>
       <SPriceTypeContainer>
         <SPriceTypes animate={priceType} {...priceTypeProps}>
-          <SPriceType>{t('higher')}</SPriceType>
-          <SPriceType>{t('lower')}</SPriceType>
+          <SPriceType>Skóre Duben 2022</SPriceType>
+          <SPriceType>Skóre Duben 2021</SPriceType>
         </SPriceTypes>
       </SPriceTypeContainer>
       <SPriceContainer>
@@ -59,11 +59,11 @@ export function PriceRangeAnimationPrices({ prices, priceType, counts }: Props) 
           <CountUp start={counts.start} end={counts.end} duration={0.75} formattingFn={(num) => `${num}` || ''} />
         </SPrice>
       </SPriceContainer>
-      {/*<SPriceCalculatingContainer>*/}
-      {/*  <SPriceCalculating animate={prices} {...pricesProps}>*/}
-      {/*    {t('calculating')}*/}
-      {/*  </SPriceCalculating>*/}
-      {/*</SPriceCalculatingContainer>*/}
+      <SPriceCalculatingContainer>
+        <SPriceCalculating animate={prices} {...pricesProps}>
+          Porovnání měsíce Duben s předcházejícím rokem
+        </SPriceCalculating>
+      </SPriceCalculatingContainer>
     </>
   )
 }

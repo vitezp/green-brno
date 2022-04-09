@@ -5,7 +5,7 @@ import { R_COVER, R_GAUGE, SVG_WIDTH } from 'components/PriceRangeAnimation/Pric
 
 export const SContainer = styled.div`
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;

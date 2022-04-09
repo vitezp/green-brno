@@ -52,8 +52,9 @@ export const SPriceCalculatingContainer = styled.div`
   overflow: hidden;
 `
 
-export const SPriceCalculating = styled(motion('span'))`
+export const SPriceCalculating = styled(motion.div)`
+  text-align: center;
   line-height: 1;
-  color: ${color('brown')};
+  color: ${textColor};
   font-weight: medium;
 `

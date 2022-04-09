@@ -18,8 +18,8 @@ export const SRangeContainerRight = styled.div`
 
 export const SRangeMin = styled(motion.div)`
   line-height: 1;
-  font-size: 28px;
-  font-weight: normal;
+  font-size: 40px;
+  font-weight: bold;
   color: #da2128;
 `
 

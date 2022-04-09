@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { color, size } from 'theme'
+import { color, size, textColor } from 'theme'
 
 export const SCardContainerLeft = styled(motion.div)`
   position: absolute;
@@ -32,4 +32,9 @@ export const SCard = styled(motion.div)`
   display: block;
   font-weight: bold;
   color: #578300;
+`
+
+export const SCardBlack = styled(SCard)`
+  color: ${textColor};
+  font-weight: normal;
 `
