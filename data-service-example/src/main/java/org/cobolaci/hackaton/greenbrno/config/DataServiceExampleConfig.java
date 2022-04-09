@@ -35,7 +35,7 @@ public class DataServiceExampleConfig {
         return WebClient.builder()
                 .exchangeStrategies(ExchangeStrategies.builder().codecs(this::acceptedCodecs).build())
                 .baseUrl(providers.getStravaapi().getBaseUrl())
-                .defaultHeaders(httpHeaders -> {httpHeaders.setBearerAuth(stravaDataProvider.getA);})
+                .defaultHeaders(httpHeaders -> httpHeaders.setBearerAuth(stravaDataProvider.getAuthorization()))
                 .build();
     }
 

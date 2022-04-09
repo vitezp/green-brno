@@ -9,8 +9,6 @@ import org.cobolaci.hackaton.greenbrno.dto.Geolocation;
 
 @Data
 public class SummaryActivity implements ExternalData, ExternalDataWrapper<SummaryActivity> {
-    @JsonProperty("id")
-    private Integer id;
 
     @JsonProperty("name")
     private String name;
@@ -19,7 +17,7 @@ public class SummaryActivity implements ExternalData, ExternalDataWrapper<Summar
     private float distance;
 
     @JsonProperty("type")
-    private StravaActivityType type;
+    private String type;
 
     @JsonProperty("commute")
     private boolean commute;

@@ -34,8 +34,8 @@ org.cobolaci.hackaton.greenbrno:
         outSR: 4326
         f: json
     strava-club-activities:
-      path: /clubs/1040016/activities
+      path: /clubs/209965/activities
 
 logging:
   level:
-    org.springframework: ERROR
+    org.springframework: DEBUG

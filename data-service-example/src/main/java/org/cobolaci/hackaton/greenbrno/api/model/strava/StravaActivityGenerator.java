@@ -17,7 +17,7 @@ public class StravaActivityGenerator {
             tmp.setCommute(true);
             tmp.setDistance(100*i);
             tmp.setName("Aktivita" + i);
-            tmp.setActivityType(StravaActivityType.RIDE);
+            tmp.setActivityType(StravaActivityType.Ride);
         }
         return  activities;
     }
