@@ -30,8 +30,8 @@ abstract class AbstractQueryService<T extends ExternalData> implements QueryServ
     public AbstractQueryService(WebClient acgisWebClient, DataSource dataPoint) {
         this.webClient = acgisWebClient;
         this.dataPoint = dataPoint;
-        this.cache = Caffeine.newBuilder().maximumSize(100)
-                .expireAfterWrite(Duration.ofHours(1)).build();
+        this.cache = Caffeine.newBuilder().maximumSize(1000)
+                .expireAfterWrite(Duration.ofHours(6)).build();
     }
 
     @Override
@@ -66,9 +66,9 @@ abstract class AbstractQueryService<T extends ExternalData> implements QueryServ
     }
 
     private List<T> getEntities(URI uri) {
-        List<T> ifPresent = cache.getIfPresent(uri);
-        if (ifPresent != null) {
-            return ifPresent;
+        List<T> cachedData = cache.getIfPresent(uri);
+        if (cachedData != null) {
+            return cachedData;
         }
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder.path(dataPoint.getPath())
