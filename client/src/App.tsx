@@ -5,13 +5,14 @@ import { EmbedSocialWidget } from './components/InstagramFeed/EmbedSocialWidget'
 import './App.css'
 import { Panel } from './components/Panel'
 import { Home } from './components/home'
-import { Profile } from './components/Profile'
-import { Events } from './components/Events'
+import { Profile } from "./components/Profile";
+import { Events } from "./components/Events";
+import {Calculator} from "./components/Calculator";
 
 export default function App() {
   return (
     <Router>
-      <div style={{ height: '3000px' }}>
+      <div>
         <Panel />
         <div style={{ paddingTop: 80 }}>
           <Switch>
@@ -24,7 +25,7 @@ export default function App() {
               </div>
             </Route>
             <Route exact path="/calculator">
-              <About />
+              <Calculator />
             </Route>
             <Route exact path="/events">
               <Events />
@@ -38,8 +39,4 @@ export default function App() {
       </div>
     </Router>
   )
-}
-
-function About() {
-  return <h2>About</h2>
 }
