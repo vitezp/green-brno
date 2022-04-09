@@ -16,6 +16,7 @@ import java.util.Map;
 @Service
 public class BikeToWorkAggregator implements DataAggregator<BikeToWork, BikeToWorkSum> {
 
+    public static final int YEAR_2018 = 2018;
     public static final int YEAR_2019 = 2019;
     public static final int YEAR_2020 = 2020;
     public static final int YEAR_2021 = 2021;
@@ -32,6 +33,7 @@ public class BikeToWorkAggregator implements DataAggregator<BikeToWork, BikeToWo
         int processedRecords = 0;
 
         Map<Integer, BikeToWorkSum> cache = new HashMap<>();
+        cache.put(YEAR_2018, new BikeToWorkSum(YEAR_2018, BigDecimal.ZERO));
         cache.put(YEAR_2019, new BikeToWorkSum(YEAR_2019, BigDecimal.ZERO));
         cache.put(YEAR_2020, new BikeToWorkSum(YEAR_2020, BigDecimal.ZERO));
         cache.put(YEAR_2021, new BikeToWorkSum(YEAR_2021, BigDecimal.ZERO));
@@ -45,6 +47,7 @@ public class BikeToWorkAggregator implements DataAggregator<BikeToWork, BikeToWo
     }
 
     private void processEntry(Map<Integer, BikeToWorkSum> cache, BikeToWork bikeToWork) {
+        updateCache(YEAR_2018, cache, bikeToWork, bikeToWork.getData2018());
         updateCache(YEAR_2019, cache, bikeToWork, bikeToWork.getData2019());
         updateCache(YEAR_2020, cache, bikeToWork, bikeToWork.getData2020());
         updateCache(YEAR_2021, cache, bikeToWork, bikeToWork.getData2021());

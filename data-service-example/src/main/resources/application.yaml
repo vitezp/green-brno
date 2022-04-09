@@ -9,7 +9,7 @@ org.cobolaci.hackaton.greenbrno:
     bike-to-work:
       path: dpnk_data/FeatureServer/0/query
       queryParams:
-        outFields: data_2019,data_2020,data_2021,Shape__Length
+        outFields: data_2018,data_2019,data_2020,data_2021,Shape__Length
         where: 1=1
         returnGeometry: false
         returnCountOnly: false
