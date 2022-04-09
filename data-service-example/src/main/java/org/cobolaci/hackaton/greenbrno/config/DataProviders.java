@@ -6,4 +6,5 @@ import lombok.Data;
 public class DataProviders {
 
     private DataProvider arcgis;
+    private DataProvider stravaapi;
 }

@@ -2,6 +2,9 @@ org.cobolaci.hackaton.greenbrno:
   providers:
     arcgis:
       baseUrl: https://services6.arcgis.com/fUWVlHWZNxUvTUh8/arcgis/rest/services/
+    stravaapi:
+      baseUrl: https://www.strava.com/api/v3/
+      authorization: ${STRAVA_OAUTH_TOKEN}
   data-sources:
     bike-to-work:
       path: dpnk_data/FeatureServer/0/query
@@ -30,8 +33,9 @@ org.cobolaci.hackaton.greenbrno:
         returnCountOnly: false
         outSR: 4326
         f: json
-
+    strava-club-activities:
+      path: /clubs/209965/activities
 
 logging:
   level:
-    org.springframework: ERROR
+    org.springframework: DEBUG
