@@ -1,4 +1,4 @@
-package org.cobolaci.hackaton.greenbrno.api;
+package org.cobolaci.hackaton.greenbrno.api.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
