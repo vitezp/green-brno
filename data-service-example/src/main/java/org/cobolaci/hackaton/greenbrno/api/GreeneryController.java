@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreeneryController {
 
     @GetMapping("/count")
-    public ResponseEntity<Integer> findUserById() {
+    public ResponseEntity<Integer> getGreeneryCount() {
         return ResponseEntity.ok().body(21212);
     }
 }
