@@ -11,10 +11,11 @@ import {
   TableHead,
   TableRow,
   Toolbar,
+  Tooltip,
   Typography,
 } from '@material-ui/core'
-import { Percentile } from '../Percentile'
 import { primaryColor } from '../../theme'
+import { CircleProgressBar } from '../Percentile'
 
 const createData = (event: string, origin: string, value: string, points: number) => {
   return { event, origin, value, points }
@@ -49,7 +50,29 @@ export const Profile: FC = () => {
     <div style={{ paddingBottom: '32px' }}>
       <Container maxWidth="lg">
         <CardHeader
-          action={<Percentile />}
+          action={
+            <Tooltip title="Jste lepší než 67% obyvatel Brna" arrow>
+              <div>
+                <Typography
+                  style={{
+                    fontWeight: 'bolder',
+                    textAlign: 'center',
+                    paddingTop: '20px',
+                  }}
+                  variant="h6"
+                >
+                  Percentil
+                </Typography>
+                <div
+                  style={{
+                    margin: '20px 30px',
+                  }}
+                >
+                  <CircleProgressBar value={67} text="67%" />
+                </div>
+              </div>
+            </Tooltip>
+          }
           avatar={
             <Avatar
               src="/images/paprik.jfif"
