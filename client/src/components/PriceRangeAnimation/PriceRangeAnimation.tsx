@@ -41,6 +41,9 @@ export function PriceRangeAnimation({ from, to }: Props) {
   const [progress, setProgress] = useState<1 | 2 | 3>()
   const [counts, setCounts] = useState({ start: 0, end: 0 })
 
+  const percentageNumber = Math.round(((to - from) / from) * 1000) / 10
+  const percentage = `${percentageNumber < 0 ? '' : '+'}${percentageNumber} %`
+
   // ANIMATION CONTROLS
   const pointer = useAnimation()
   const prices = useAnimation()
@@ -232,7 +235,7 @@ export function PriceRangeAnimation({ from, to }: Props) {
 
       <PriceRangeAnimationIndicators lower={lower} higher={higher} />
 
-      {showCards && <PriceRangeAnimationCards />}
+      {showCards && <PriceRangeAnimationCards percentage={percentage} />}
 
       <PriceRangeAnimationRanges from={from} to={to} ranges={ranges} />
     </SContainer>

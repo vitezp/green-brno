@@ -27,7 +27,7 @@ const cardProps = {
   transition: { duration: 1, type: 'spring', stiffness: 50 },
 }
 
-export function PriceRangeAnimationCards() {
+export function PriceRangeAnimationCards({ percentage }: { percentage: string }) {
   const { t } = useTranslation(['buyingWizard'])
   const [show, setShow] = useState<{
     left?: boolean
@@ -65,7 +65,7 @@ export function PriceRangeAnimationCards() {
       )}
       {show.top && (
         <SCardContainerTop {...contPropsTop}>
-          <SCard {...cardProps}>{t('+10 %')}</SCard>
+          <SCard {...cardProps}>{percentage}</SCard>
         </SCardContainerTop>
       )}
     </>
