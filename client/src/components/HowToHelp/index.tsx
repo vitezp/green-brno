@@ -30,7 +30,7 @@ export const HowToHelp = () => {
                 display: 'flex',
                 justifyContent: 'space-evenly'
             }}>
-                <Card className={classes.root}>
+                <Card className={classes.root} style={{ position: 'relative'}}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -47,12 +47,12 @@ export const HowToHelp = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
+                    <CardActions style={{ position: 'absolute', bottom: '10px'}}>
                         <Button size="small" href="https://www.vzmb.cz/" target="_blank">Více zde</Button>
                         <Button size="small" href="/heatMap">Zobraz mapu</Button>
                     </CardActions>
                 </Card>
-                <Card className={classes.root}>
+                <Card className={classes.root} style={{ position: 'relative'}}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -69,7 +69,7 @@ export const HowToHelp = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
+                    <CardActions style={{ position: 'absolute', bottom: '10px'}}>
                         <Button size="small" href="https://ekodotace.brno.cz/dotace/ekologicka-vychova/"
                                 target="_blank">Více zde</Button>
                     </CardActions>
@@ -125,7 +125,7 @@ export const HowToHelp = () => {
                         <Button size="small" href="https://www.teplarny.cz/cs/dobijecky-pro-elektromobily" target="_blank">Více zde</Button>
                     </CardActions>
                 </Card>
-                <Card className={classes.root}>
+                <Card className={classes.root} style={{ position: 'relative'}}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -141,12 +141,12 @@ export const HowToHelp = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
+                    <CardActions style={{ position: 'absolute', bottom: '10px'}}>
                         <Button size="small" href="https://www.sako.cz/pro-brnaky/cz/801/energeticke-vyuziti-odpadu/"
                                 target="_blank">Více zde</Button>
                     </CardActions>
                 </Card>
-                <Card className={classes.root}>
+                <Card className={classes.root} style={{ position: 'relative'}}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -162,7 +162,7 @@ export const HowToHelp = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
+                    <CardActions style={{ position: 'absolute', bottom: '10px'}}>
                         <Button size="small" href="https://www.tsb.cz/sluzby/verejne-osvetleni-mesta-brna/" target="_blank">Více zde</Button>
                         <Button size="small" href="/lightsMap">Zobraz mapu</Button>
                     </CardActions>
