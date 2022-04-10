@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
+import {Typography} from "@material-ui/core";
 
-export const EmbedSocialWidget = ({ refId }: any) => {
+export const EmbedSocialWidget = ({ refId, title, subtitle }: any) => {
   useEffect(() => {
     const scriptik = (d: any, s: any, id: any) => {
       const js: any = d.createElement(s)
@@ -13,8 +14,14 @@ export const EmbedSocialWidget = ({ refId }: any) => {
   }, [])
 
   return (
-    <>
-      <div className="embedsocial-hashtag" data-ref={refId}></div>
-    </>
+      <div>
+        <Typography style={{
+          margin: '80px 10px 20px 15px'
+        }} variant="h3">{title}</Typography>
+        <Typography style={{
+          margin: '20px 10px 20px 15px'
+        }} variant="h6">{subtitle}</Typography>
+        <div className="embedsocial-hashtag" data-ref={refId}/>
+      </div>
   )
 }
