@@ -13,7 +13,7 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core'
-import { Percentile } from "../Percentile";
+import { Percentile } from '../Percentile'
 import { primaryColor } from '../../theme'
 
 const createData = (event: string, origin: string, value: string, points: number) => {
@@ -46,10 +46,10 @@ export const Profile: FC = () => {
   }, [])
 
   return (
-    <div>
+    <div style={{ paddingBottom: '32px' }}>
       <Container maxWidth="lg">
         <CardHeader
-          action={<Percentile/>}
+          action={<Percentile />}
           avatar={
             <Avatar
               src="/images/paprik.jfif"
@@ -99,13 +99,11 @@ export const Profile: FC = () => {
               <TableRow>
                 <TableCell colSpan={1} />
                 <TableCell colSpan={1} />
-                <TableCell colSpan={1}>Total</TableCell>
-                <TableCell align="right">14</TableCell>
                 <TableCell style={{ fontWeight: '600' }} colSpan={1} align="right">
                   Total
                 </TableCell>
                 <TableCell style={{ fontWeight: '600' }} align="right">
-                  30
+                  14
                 </TableCell>
               </TableRow>
             </TableBody>

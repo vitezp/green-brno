@@ -1,6 +1,5 @@
 import React from 'react'
 import { PriceRangeAnimation } from '../PriceRangeAnimation/PriceRangeAnimation'
-import { Typography } from '@material-ui/core'
 import { primaryColor, textColor } from '../../theme'
 
 export const Home = () => {
