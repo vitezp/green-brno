@@ -7,8 +7,9 @@ import { Home } from './components/home'
 import { Profile } from './components/Profile'
 import { Events } from './components/Events'
 import { Calculator } from './components/Calculator'
-import {HowToHelp} from "./components/HowToHelp";
-import {LightsMap} from "./streetLightsMap/components/LightsMap";
+import { HowToHelp } from "./components/HowToHelp";
+import { LightsMap } from "./streetLightsMap/components/LightsMap";
+import { Map } from "./map/components/Map";
 
 export default function App() {
   return (
@@ -34,6 +35,9 @@ export default function App() {
             </Route>
             <Route exact path="/lightsMap">
               <LightsMap />
+            </Route>
+            <Route exact path="/heatMap">
+              <Map />
             </Route>
             <Redirect to="/" />
           </Switch>
