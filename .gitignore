@@ -8,3 +8,7 @@
 .vscode/
 
 **/target/
+
+node_modules/
+
+src/index.css.d.ts
