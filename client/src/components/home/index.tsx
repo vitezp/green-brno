@@ -50,11 +50,11 @@ export const Home = () => {
   const [openCategory, setOpenCategory] = useState('Doprava')
   return (
     <div>
-      <div style={{ padding: '32px', fontSize: '56px', color: textColor, textAlign: 'center' }}>
+      <div style={{ padding: '45px', fontSize: '56px', color: textColor, textAlign: 'center' }}>
         Společně za <span style={{ color: primaryColor }}>zelené</span> Brno
       </div>
       <PriceRangeAnimation from={from} to={to} />
-      <div style={{ height: '480px' }} />
+      <div style={{ height: '460px' }} />
 
       {categories.map((category) => (
         <Category

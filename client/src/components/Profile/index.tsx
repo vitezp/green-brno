@@ -33,7 +33,7 @@ export const Profile: FC = () => {
   const rows = [
     createData('Do práce na kole', 'strava', '35 km', 4),
     createData('Do práce peši', 'strava', '12 km', 6),
-    createData('Do práce MHD', 'strava', '70 min', 2),
+    createData('Do práce MHD', 'pipni-a-jed', '70 min', 2),
     createData('Ukliďme Brno', 'instagram', '24 interakcí', 2),
   ]
 
