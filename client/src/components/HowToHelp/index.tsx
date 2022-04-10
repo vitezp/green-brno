@@ -163,7 +163,7 @@ export const HowToHelp = () => {
                     </CardActionArea>
                     <CardActions>
                         <Button size="small" href="https://www.tsb.cz/sluzby/verejne-osvetleni-mesta-brna/" target="_blank">Více zde</Button>
-                        <Button size="small" href="#NOT_YET_IMPLEMENTED" target="_blank">Zobraz mapu</Button>
+                        <Button size="small" href="/lightsMap">Zobraz mapu</Button>
                     </CardActions>
                 </Card>
             </Container>

@@ -8,6 +8,7 @@ import { Profile } from './components/Profile'
 import { Events } from './components/Events'
 import { Calculator } from './components/Calculator'
 import {HowToHelp} from "./components/HowToHelp";
+import {LightsMap} from "./streetLightsMap/components/LightsMap";
 
 export default function App() {
   return (
@@ -30,6 +31,9 @@ export default function App() {
             </Route>
             <Route exact path="/howtohelp">
               <HowToHelp />
+            </Route>
+            <Route exact path="/lightsMap">
+              <LightsMap />
             </Route>
             <Redirect to="/" />
           </Switch>
