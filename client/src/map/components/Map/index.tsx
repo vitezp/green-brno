@@ -33,5 +33,5 @@ export const Map: FC = () => {
     }
   }, [])
 
-  return <div style={{ width: '100vw', height: '100vh' }} ref={mapContainerRef} />
+  return <div style={{ width: '100vw', height: '88vh' }} ref={mapContainerRef} />
 }

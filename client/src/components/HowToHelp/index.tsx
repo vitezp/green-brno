@@ -49,6 +49,7 @@ export const HowToHelp = () => {
                     </CardActionArea>
                     <CardActions>
                         <Button size="small" href="https://www.vzmb.cz/" target="_blank">Více zde</Button>
+                        <Button size="small" href="/heatMap">Zobraz mapu</Button>
                     </CardActions>
                 </Card>
                 <Card className={classes.root}>
