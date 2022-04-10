@@ -109,7 +109,7 @@ export const Profile: FC = () => {
                     {row.event}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="left">
-                    {row.origin}
+                    <Avatar src={`/favicon/${row.origin}.ico`} style={{ height: '25px', width: '25px', }}/>
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="left">
                     {row.value}
