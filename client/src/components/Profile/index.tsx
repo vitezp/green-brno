@@ -13,12 +13,11 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core'
-import { useStyles } from '../Panel/styles'
-import {BikeToWork} from "../BikeToWork";
-import {Percentile} from "../Percentile";
+import { useStyles } from '../Panel/styles';
+import { Percentile } from "../Percentile";
 
-const createData = (event: string, distance: number, points: number) => {
-  return { event, distance, points }
+const createData = (event: string, origin: string, value: string, points: number) => {
+  return { event, origin, value, points }
 }
 
 export const Profile: FC = () => {
@@ -27,13 +26,15 @@ export const Profile: FC = () => {
 
   const columns = [
     { id: 'activity', label: 'Aktivita', align: 'left' as const },
-    { id: 'distance', label: 'Vzdálenost (km)', align: 'left' as const },
+    { id: 'origin', label: 'Původ', align: 'left' as const },
+    { id: 'value', label: 'Měrná hodnota', align: 'left' as const },
     { id: 'points', label: 'Body', align: 'right' as const },
   ]
   const rows = [
-    createData('Do práce na kole', 35, 4),
-    createData('Do práce peši', 12, 2),
-    createData('Do práce MHD', 240, 24.0),
+    createData('Do práce na kole', 'strava', '35 km', 4),
+    createData('Do práce peši', 'strava', '12 km', 6),
+    createData('Do práce MHD', 'strava', '70 min', 2),
+    createData('Ukliďme Brno', 'instagram', '24 interakcí', 2),
   ]
 
   useEffect(() => {
@@ -59,7 +60,7 @@ export const Profile: FC = () => {
               }}
             />
           }
-          subheader="vítejte ve svém profilu! Zde můžete vidět súhrn svých aktivit, které dělají Brno zelenším"
+          subheader="Vítejte ve svém profilu! Zde můžete vidět súhrn svých aktivit, které dělají Brno zelenším."
           title={<Typography variant="h2">Patrik</Typography>}
         />
 
@@ -85,8 +86,11 @@ export const Profile: FC = () => {
                   <TableCell component="th" scope="row">
                     {row.event}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
-                    {row.distance} km
+                  <TableCell style={{ width: 160 }} align="left">
+                    {row.origin}
+                  </TableCell>
+                  <TableCell style={{ width: 160 }} align="left">
+                    {row.value}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="right">
                     {row.points}
@@ -95,8 +99,9 @@ export const Profile: FC = () => {
               ))}
               <TableRow>
                 <TableCell colSpan={1} />
+                <TableCell colSpan={1} />
                 <TableCell colSpan={1}>Total</TableCell>
-                <TableCell align="right">30</TableCell>
+                <TableCell align="right">14</TableCell>
               </TableRow>
             </TableBody>
           </Table>
