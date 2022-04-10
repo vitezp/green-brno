@@ -1,7 +1,6 @@
 import './App.css'
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
-import { EmbedSocialWidget } from './components/InstagramFeed/EmbedSocialWidget'
 import './App.css'
 import { Panel } from './components/Panel'
 import { Home } from './components/home'
@@ -24,11 +23,6 @@ export default function App() {
             </Route>
             <Route exact path="/events">
               <Events />
-              <div style={{ paddingTop: 50 }}>
-                <EmbedSocialWidget refId="d2fd508a63740c27e790196ace907ebac1fd3bb3" />
-                <EmbedSocialWidget refId="b9efa64ea766d99bce15aa8fb11a86868a12d9bb" />
-                <EmbedSocialWidget refId="8fb2685ea09277cc512dd9ac73984c2bdcded408" />
-              </div>
             </Route>
             <Route exact path="/profile">
               <Profile />

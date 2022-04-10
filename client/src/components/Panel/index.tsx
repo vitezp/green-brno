@@ -6,7 +6,7 @@ import { primaryColor, textColor } from '../../theme'
 
 const panelItems = [
   { key: 'calculator', label: 'Eko Kalkulačka' },
-  { key: 'events', label: 'Akce' },
+  { key: 'events', label: 'Události' },
 ]
 
 export const Panel: FC = () => {
