@@ -16,24 +16,22 @@ interface Props {
 }
 
 export function PriceRangeAnimationProgress({ progress }: Props) {
-  const { t } = useTranslation(['buyingWizard'])
-
   return (
     <SContainer>
       <AnimatePresence exitBeforeEnter>
         {progress === 1 && (
           <SText key={1} {...props}>
-            {t('assessing')}
+            Získavání dat
           </SText>
         )}
         {progress === 2 && (
           <SText key={2} {...props}>
-            {t('analysing')}
+            Spracování dat
           </SText>
         )}
         {progress === 3 && (
           <SText key={3} {...props}>
-            {t('comparing')}
+            Porovnání dat
           </SText>
         )}
       </AnimatePresence>

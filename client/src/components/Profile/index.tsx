@@ -13,15 +13,14 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core'
-import { useStyles } from '../Panel/styles';
 import { Percentile } from "../Percentile";
+import { primaryColor } from '../../theme'
 
 const createData = (event: string, origin: string, value: string, points: number) => {
   return { event, origin, value, points }
 }
 
 export const Profile: FC = () => {
-  const classes = useStyles()
   const [data, setData] = useState([])
 
   const columns = [
@@ -47,7 +46,7 @@ export const Profile: FC = () => {
   }, [])
 
   return (
-    <Paper classes={classes}>
+    <div>
       <Container maxWidth="lg">
         <CardHeader
           action={<Percentile/>}
@@ -71,10 +70,10 @@ export const Profile: FC = () => {
         </Toolbar>
         <TableContainer component={Paper}>
           <Table>
-            <TableHead style={{ backgroundColor: 'yellow' }}>
+            <TableHead style={{ backgroundColor: `${primaryColor}80` }}>
               <TableRow>
                 {columns.map(({ id, align, label }) => (
-                  <TableCell key={id} align={align}>
+                  <TableCell style={{ fontWeight: '600' }} key={id} align={align}>
                     {label}
                   </TableCell>
                 ))}
@@ -102,11 +101,17 @@ export const Profile: FC = () => {
                 <TableCell colSpan={1} />
                 <TableCell colSpan={1}>Total</TableCell>
                 <TableCell align="right">14</TableCell>
+                <TableCell style={{ fontWeight: '600' }} colSpan={1} align="right">
+                  Total
+                </TableCell>
+                <TableCell style={{ fontWeight: '600' }} align="right">
+                  30
+                </TableCell>
               </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
       </Container>
-    </Paper>
+    </div>
   )
 }

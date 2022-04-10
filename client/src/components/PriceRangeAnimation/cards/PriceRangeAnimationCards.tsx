@@ -1,7 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { delay } from 'utils'
-import { SCard, SCardContainerTop } from './PriceRangeAnimationCards.styled'
+import {
+  SCard,
+  SCardBlack,
+  SCardContainerTop,
+  SCardContainerLeft,
+  SCardContainerRight,
+} from './PriceRangeAnimationCards.styled'
 
 const contProps = {
   initial: { scaleY: 0.5, y: '-25%' },
@@ -47,16 +53,16 @@ export function PriceRangeAnimationCards() {
 
   return (
     <>
-      {/*{show.left && (*/}
-      {/*  <SCardContainerLeft {...contProps}>*/}
-      {/*    <SCard {...cardProps}>{t('suspicious')}</SCard>*/}
-      {/*  </SCardContainerLeft>*/}
-      {/*)}*/}
-      {/*{show.right && (*/}
-      {/*  <SCardContainerRight {...contProps}>*/}
-      {/*    <SCard {...cardProps}>{t('overpriced')}</SCard>*/}
-      {/*  </SCardContainerRight>*/}
-      {/*)}*/}
+      {show.left && (
+        <SCardContainerLeft {...contProps}>
+          <SCardBlack {...cardProps}>Duben 2021</SCardBlack>
+        </SCardContainerLeft>
+      )}
+      {show.right && (
+        <SCardContainerRight {...contProps}>
+          <SCardBlack {...cardProps}>Duben 2022</SCardBlack>
+        </SCardContainerRight>
+      )}
       {show.top && (
         <SCardContainerTop {...contPropsTop}>
           <SCard {...cardProps}>{t('+10 %')}</SCard>
