@@ -5,9 +5,9 @@ import { EmbedSocialWidget } from './components/InstagramFeed/EmbedSocialWidget'
 import './App.css'
 import { Panel } from './components/Panel'
 import { Home } from './components/home'
-import { Profile } from "./components/Profile";
-import { Events } from "./components/Events";
-import {Calculator} from "./components/Calculator";
+import { Profile } from './components/Profile'
+import { Events } from './components/Events'
+import { Calculator } from './components/Calculator'
 
 export default function App() {
   return (
