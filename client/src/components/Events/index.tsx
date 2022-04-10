@@ -7,8 +7,6 @@ export const Events: FC = () => {
   console.log({ location })
   const classes = useStyles()
 
-  const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum dui sit amet metus lacinia ultricies. Ut dui nulla, venenatis a quam ac, vehicula laoreet eros.";
-
   return (
     <Paper classes={classes}>
       <Container maxWidth="lg">
