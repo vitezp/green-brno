@@ -51,27 +51,41 @@ export const Profile: FC = () => {
       <Container maxWidth="lg">
         <CardHeader
           action={
-            <Tooltip title="Jste lepší než 67% obyvatel Brna" arrow>
+            <div style={{display: 'flex'}}>
               <div>
-                <Typography
-                  style={{
-                    fontWeight: 'bolder',
-                    textAlign: 'center',
-                    paddingTop: '20px',
-                  }}
-                  variant="h6"
-                >
-                  Percentil
-                </Typography>
-                <div
-                  style={{
-                    margin: '20px 30px',
-                  }}
-                >
-                  <CircleProgressBar value={67} text="67%" />
-                </div>
+                <Avatar
+                    src="/images/badge.png"
+                    style={{
+                      height: '70px',
+                      width: '70px',
+                      marginTop: '95px',
+                      marginLeft: '50px'
+                    }}
+                />
+                <sup>Šampión ve třídení odpadu</sup>
               </div>
-            </Tooltip>
+              <Tooltip title="Jste lepší než 67% obyvatel Brna" arrow>
+                <div>
+                  <Typography
+                    style={{
+                      fontWeight: 'bolder',
+                      textAlign: 'center',
+                      paddingTop: '20px',
+                    }}
+                    variant="h6"
+                  >
+                    Percentil
+                  </Typography>
+                  <div
+                    style={{
+                      margin: '20px 30px',
+                    }}
+                  >
+                    <CircleProgressBar value={67} text="67%" />
+                  </div>
+                </div>
+              </Tooltip>
+            </div>
           }
           avatar={
             <Avatar
